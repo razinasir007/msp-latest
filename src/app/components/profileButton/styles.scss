@@ -1,0 +1,45 @@
+.chakra-menu__menu-button {
+  // .profile-button {
+  background-color: transparent !important;
+  color: rgb(206, 204, 200) !important;
+  border-radius: 10;
+  height: "auto";
+  &:hover {
+    background-color: rgb(206, 204, 200, 0.2) !important;
+  }
+}
+
+.ps-collapsed .chakra-menu__menu-button {
+  &:hover {
+    background: transparent !important;
+  }
+}
+
+.profile-list {
+  background-color: rgb(128, 128, 128) !important;
+  color: rgb(206, 204, 189) !important;
+  border: none;
+}
+
+.chakra-menu__menuitem {
+  background: transparent !important;
+  font-family: var(--chakra-fonts-body);
+  font-weight: bold;
+  &:hover {
+    background-color: rgb(43, 42, 44) !important;
+  }
+}
+.chakra-menu__group__title {
+  color: rgb(43, 42, 44) !important;
+}
+
+.chakra-menu__group {
+  height: 90%;
+}
+.chakra-menu__icon-wrapper {
+  margin-right: 6px !important;
+}
+.chakra-menu__icon {
+  width: 1.75em;
+  height: 1.75em;
+}

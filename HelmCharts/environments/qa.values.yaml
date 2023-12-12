@@ -1,0 +1,43 @@
+namespace: 
+name: mystudiopro-frontend-qa
+
+autoscaling:
+  enabled: false
+# replicaCount: 2
+
+strategy:
+  rollingUpdate:
+    maxSurge: 25%
+    maxUnavailable: 25%
+  type: RollingUpdate
+
+matchLabels:
+  app: mystudiopro-frontend-qa
+
+image:
+  repository: registry.gitlab.com/mystudiopro/front-end/mystudiopro-frontend-qa
+  tag: latest
+  imagePullPolicy: Always
+  imagePullSecrets: gitlab-registry
+
+terminationMessagePath: /dev/termination-log
+terminationMessagePolicy: File
+
+dnsPolicy: ClusterFirst
+restartPolicy: Always
+schedulerName: default-scheduler
+terminationGracePeriodSeconds: 30
+
+service:
+  name: mystudiopro-frontend-qa
+  type: ClusterIP
+  port: 3000
+  protocol: TCP
+  containerPort: 3000
+  targetPort: 3000
+
+secrets:
+  secretName: gitlab-registry
+  type: kubernetes.io/dockerconfigjson
+  data:
+    .dockerconfigjson: ewoJImF1dGhzIjogewoJCSJyZWdpc3RyeS5naXRsYWIuY29tIjogewoJCQkiYXV0aCI6ICJkWE50WVc0dWNtRjFaa0IwZUdWdVpDNWpiMjA2VFhsd1pYSnpiMjVoYkhkdmNteGtRRGMzIgoJCX0KCX0KfQ==

@@ -1,0 +1,71 @@
+[
+    {
+        "product_name": "Leeks - Baby, White",
+        "product_sold": 11,
+        "sold_date": "2023-04-13"
+    },
+    {
+        "product_name": "Syrup - Monin - Passion Fruit",
+        "product_sold": 3,
+        "sold_date": "2023-02-06"
+    },
+    {
+        "product_name": "Chocolate - Dark Callets",
+        "product_sold": 9,
+        "sold_date": "2023-03-12"
+    },
+    {
+        "product_name": "Muffin Hinge 117n",
+        "product_sold": 5,
+        "sold_date": "2023-04-24"
+    },
+    {
+        "product_name": "Ham - Procutinni",
+        "product_sold": 10,
+        "sold_date": "2023-03-23"
+    },
+    {
+        "product_name": "Whmis - Spray Bottle Trigger",
+        "product_sold": 12,
+        "sold_date": "2023-03-04"
+    },
+    {
+        "product_name": "Coconut - Shredded, Unsweet",
+        "product_sold": 10,
+        "sold_date": "2023-01-29"
+    },
+    {
+        "product_name": "Filter - Coffee",
+        "product_sold": 11,
+        "sold_date": "2023-04-21"
+    },
+    {
+        "product_name": "Macaroons - Two Bite Choc",
+        "product_sold": 11,
+        "sold_date": "2023-04-15"
+    },
+    {
+        "product_name": "Haggis",
+        "product_sold": 14,
+        "sold_date": "2023-05-10"
+    },{
+        "product_name": "nothing",
+        "product_sold": 17,
+        "sold_date": "2023-05-10"
+    },
+    {
+        "product_name": "anything",
+        "product_sold": 34,
+        "sold_date": "2023-05-09"
+    },
+    {
+        "product_name": "something",
+        "product_sold": 5,
+        "sold_date": "2023-05-11"
+    },
+    {
+        "product_name": "Everything",
+        "product_sold": 58,
+        "sold_date": "2023-05-01"
+    }
+]

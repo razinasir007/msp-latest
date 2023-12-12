@@ -1,0 +1,30 @@
+# Stage 1: Build
+FROM node:latest as build
+WORKDIR /app
+
+# Copy package.json and yarn.lock to leverage Docker layer caching
+COPY package.json ./
+
+# Copy the rest of the source code
+COPY . .
+
+# Build the project
+RUN npm install -g yarn
+RUN yarn generate && \
+    yarn build
+
+# Stage 2: Deploy
+#FROM nginx:latest as deploy
+#WORKDIR /usr/share/nginx/html
+
+# Copy the built artifacts from the previous stage
+#COPY --from=build /app/dist .
+
+# Modify the artifacts as needed
+#RUN mv index.html 404.html
+
+EXPOSE 3333
+
+#CMD ["nginx", "-g", "daemon off;"]
+CMD  ["yarn", "start"]
+

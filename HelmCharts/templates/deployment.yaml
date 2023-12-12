@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  progressDeadlineSeconds: {{ .Values.progressDeadlineSeconds }}
+{{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+{{- end }}
+  selector: 
+    matchLabels:
+    {{- toYaml ( .Values.matchLabels ) | nindent 6 }}
+  strategy:
+   {{- toYaml ( .Values.strategy ) | nindent 4 }}
+  template:
+    metadata:
+     creationTimestamp: null
+     labels:
+      date: "{{ now | unixEpoch }}"
+      app: {{ .Chart.Name }}
+    spec:
+      imagePullSecrets:
+       - name: {{ .Values.image.imagePullSecrets }}
+      containers:
+      - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+        imagePullPolicy: {{ .Values.image.imagePullPolicy }}
+        name: {{ .Chart.Name }}
+        ports:
+        -  containerPort: {{ .Values.service.containerPort }}
+           protocol: TCP
+      dnsPolicy: {{ .Values.dnsPolicy }}
+      schedulerName: {{ .Values.schedulerName }}
+      securityContext: {}
+      restartPolicy: {{ .Values.restartPolicy }}
+      terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: {{ .Values.service.name }}
+ namespace: {{ .Values.namespace }}
+spec:
+ type: {{ .Values.service.type }}
+ sessionAffinity: None
+ selector:
+   app: {{ .Chart.Name }}
+ ports:
+  - protocol: {{ .Values.service.protocol }}
+    port: {{ .Values.service.port }}
+    targetPort: {{ .Values.service.targetPort }}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: gitlab-registry
+  namespace: {{ .Values.namespace }}
+type: {{ .Values.secrets.type }}
+data:
+  {{- toYaml .Values.secrets.data | nindent 2 }}
+
+

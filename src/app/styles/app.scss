@@ -1,0 +1,193 @@
+$drawer-transition-time: 300ms;
+
+body {
+  overflow-x: hidden;
+  box-sizing: border-box;
+
+  font-family: "Noto Sans", sans-serif;
+  color: #333;
+  font-size: 12px;
+}
+.ps-sidebar-root {
+  border-color: #121212 !important;
+  // display: none;
+}
+.ps-sidebar-container {
+  padding: 10px 20px;
+}
+.ps-sidebar-container .ps-menu-root .ps-menuitem-root {
+  margin: 6px 0px;
+}
+.ps-active {
+  color: #ffffff;
+  background-color: #33322f;
+  border-radius: 4px;
+}
+
+.ps-collapsed
+  .ps-sidebar-container
+  .ps-menu-root
+  .ps-menuitem-root
+  .ps-menu-button {
+  transition: all ease $drawer-transition-time;
+  padding-left: 2px !important;
+}
+.mainContent {
+  width: 100%;
+  transition: all ease $drawer-transition-time;
+  margin-left: 250px;
+}
+.mainContentForClient {
+  width: 100%;
+  transition: all ease $drawer-transition-time;
+  // margin-left: 250px;
+}
+.client-view-account {
+  margin-left: 315px;
+}
+.settingPageContent {
+  height: 100vh;
+  width: 100%;
+  margin-left: 238px;
+}
+.ps-collapsed + .mainContent {
+  transition: all ease $drawer-transition-time;
+  margin-left: 80px !important;
+}
+
+.ps-sidebar-container .ps-menu-root .ps-menuitem-root .ps-menu-button {
+  transition: all ease $drawer-transition-time;
+  padding-left: 10px !important;
+}
+
+// START::: hide scrollbar in drawer if screensize is small, keeps it scrollable
+.hide-scrollbar {
+  overflow-x: auto;
+  overflow-y: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+// END
+
+// START::: horizontal line between the stepper styles
+// width of the line
+.cui-steps__horizontal-step::after {
+  width: calc(100% - 10px - calc(8px * 2)) !important;
+}
+// change color of the line after step has been changed
+.cui-steps__horizontal-step {
+  &[data-highlighted]:not(:last-child):after {
+    background-color: #121212 !important;
+  }
+}
+// END
+
+// START::: icons between the stepper styles
+// change color of the icon after step has been changed
+.cui-steps__horizontal-step {
+  &[aria-disabled="false"]
+    > .cui-steps__horizontal-step-container
+    > .cui-steps__step-icon-container
+    > div
+    > svg {
+    color: #121212 !important;
+  }
+}
+// default color of step icon
+.cui-steps__step-icon-container > div > svg {
+  color: #bfbfbf;
+}
+// change color of active step icon
+.cui-steps__step-icon-container {
+  &[aria-current="step"] > div > svg {
+    color: #121212;
+  }
+}
+// END
+
+// START::: text of the stepper styles
+// change color of text after step has changed
+.cui-steps__horizontal-step {
+  &[aria-disabled="false"]
+    > .cui-steps__horizontal-step-container
+    > div
+    > span {
+    color: #121212 !important;
+  }
+}
+// default color of step text
+.cui-steps__horizontal-step-container > div > span {
+  color: #bfbfbf;
+}
+// change color of active step text
+.cui-steps__horizontal-step-container > div {
+  &[aria-current="step"] > span {
+    color: #121212;
+  }
+}
+// END
+
+//override styles of stepper
+.cui-steps__horizontal-step-container .cui-steps__step-icon-container {
+  background-color: transparent;
+  border: none;
+}
+
+.splide__track {
+  height: inherit;
+}
+
+.sidebar-container-class {
+  /* Set a custom width for the scrollbar track */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Customize the appearance of the scrollbar track */
+  ::-webkit-scrollbar-track {
+    background: #efefef;
+  }
+
+  /* Customize the appearance of the scrollbar thumb */
+  ::-webkit-scrollbar-thumb {
+    background: #b9b8b8;
+  }
+
+  /* Customize the appearance of the scrollbar thumb on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #b9b8b8;
+  }
+}
+
+.splide__list {
+  // transform: translateX(-2412.4px);
+  width: 100%;
+  height: 100%;
+}
+//Background Color for Fullscreen in Presentation Mode in TOOL
+.fullscreen-enabled {
+  background: #fff;
+}
+.star {
+  color: lightgray;
+  cursor: pointer;
+}
+
+.filled {
+  color: gold;
+}
+
+.filledBlack {
+  color: rgb(0, 0, 0);
+}
+.fullscreen-slide {
+  width: 100%;
+  /* Add any other styles you want for fullscreen slides */
+}
+.selected-item {
+  background-color: #f0f0f0; /* Change this color to your desired selection color */
+  /* Add any other styling you want for the selected item */
+}

@@ -1,0 +1,9 @@
+.parcel-cache/
+dist/
+node_modules/
+.DS_store
+src/apollo/gql-types/
+yarn-error.log
+
+# vs code settings
+.vscode/

@@ -1,0 +1,8 @@
+apiVersion: v2
+description: A Helm chart for MyStudioPro
+maintainers:
+  - email: usman.rauf@txend.com
+    name: Usman Rauf
+name: mystudiopro-frontend
+type: application
+version: 0.1.0
